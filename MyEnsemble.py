@@ -20,9 +20,9 @@ import numpy as np
 
 from CifarImbalanced import CIFAR10, CIFAR100
 from FocalLossV5 import FocalLoss
-from Evaluation import acc
+#from Evaluation import acc
 
-from EnsembleV1 import resnext29_16_64, resnext47_16_64, resnext56_16_64
+from EnsembleV2 import resnext29_16_64, resnext47_16_64, resnext56_16_64
 
 os.environ["KMP_DUPLICATE_LIB_OK"]="TRUE"
 
@@ -227,7 +227,7 @@ def get_checkpoint(epoch, checkpoint='checkpoint'):
     filepath = os.path.join(checkpoint, filename)
     return filepath
 
-def MyEnsemble(IR=10., Cifar10_used=True, step_imbalance=True, root="./Result", fine_tunning = 0):
+def MyEnsemble(IR=10., Cifar10_used=False, step_imbalance=True, root="./Result", fine_tunning = 0):
     if Cifar10_used:
         num_class = 10
     else:
@@ -342,4 +342,6 @@ def MyEnsemble(IR=10., Cifar10_used=True, step_imbalance=True, root="./Result", 
     print(ensembleTestAcc)
 
     return best_prec1
-    
+
+if __name__ == "__main__":
+    MyEnsemble()    
