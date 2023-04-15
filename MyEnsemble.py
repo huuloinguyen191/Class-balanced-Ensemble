@@ -227,7 +227,7 @@ def get_checkpoint(epoch, checkpoint='checkpoint'):
     filepath = os.path.join(checkpoint, filename)
     return filepath
 
-def MyEnsemble(IR=10., Cifar10_used=False, step_imbalance=True, root="./Result", fine_tunning = 0):
+def MyEnsemble(IR=10., Cifar10_used=True, step_imbalance=True, root="./Result", fine_tunning = 0):
     if Cifar10_used:
         num_class = 10
     else:
