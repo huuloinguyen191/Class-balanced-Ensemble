@@ -20,7 +20,7 @@ import numpy as np
 
 from CifarImbalanced import CIFAR10, CIFAR100
 from FocalLossV5 import FocalLoss
-#from Evaluation import acc
+from Evaluation import acc
 
 from EnsembleV2 import resnext29_16_64, resnext47_16_64, resnext56_16_64
 
