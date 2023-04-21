@@ -204,7 +204,7 @@ def save_checkpoint(state, is_best, checkpoint='checkpoint', acc=100., epoch=1):
     if os.path.exists(checkpoint)==False:
         os.makedirs(checkpoint)
 
-    filename = "Epoch_"+str(epoch)+"_"+str(acc)+"_checkpoint.pth.tar"
+    filename = "Epoch_"+str(epoch)+"_checkpoint.pth.tar"
     filepath = os.path.join(checkpoint, filename)
     torch.save(state, filepath)
     if is_best:
@@ -238,7 +238,7 @@ def MyEnsemble(IR=10., Cifar10_used=True, step_imbalance=True, root="./Result", 
     weight_decay = 1e-4
     batchSize = 100
 
-    start_epoch = 0
+    start_epoch = fine_tunning
     epochs = 100
     schedule = [30, 60, 90, 100]
     gamma = 2.0
@@ -344,4 +344,4 @@ def MyEnsemble(IR=10., Cifar10_used=True, step_imbalance=True, root="./Result", 
     return best_prec1
 
 if __name__ == "__main__":
-    MyEnsemble()    
+    MyEnsemble(fine_tunning = 0) #  star_epoch=fine_tuning   
